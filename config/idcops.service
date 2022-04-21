@@ -1,0 +1,20 @@
+[Unit]
+Description=Gunicorn daemon for idcops service
+Documentation=https://github.com/Wenvki/django-idcops/blob/master/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www
+Group=www
+WorkingDirectory=/opt/django-idcops
+PIDFile=/opt/django-idcops/run/idcops.pid
+ExecStart=/opt/django-idcops/env/bin/gunicorn -c config/gunicorn.py -p run/idcops.pid idcops_proj.wsgi:application
+
+Restart=on-failure
+RestartSec=30
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

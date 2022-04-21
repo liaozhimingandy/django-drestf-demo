@@ -1,0 +1,4 @@
+*.pyc
+app/build/
+app/dist/
+*.spec
