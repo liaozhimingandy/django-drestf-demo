@@ -9,7 +9,7 @@ on:
 
     # Publish `v1.2.3` tags as releases.
     tags:
-      - 'v*'
+      - v*
 
   # Run tests for any PRs.
   pull_request:
@@ -40,6 +40,8 @@ jobs:
         uses: docker/metadata-action@v3  
         with:
           images: liaozhiming/django_drestf_demo
+          tags: |
+            type=semver,pattern={{version}}
 
       # 构建镜像并且推送到dockerhub
       - name: Build and push Docker image
