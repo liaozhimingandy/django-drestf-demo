@@ -37,11 +37,12 @@ jobs:
       # 抽取项目信息，主要是镜像的tag
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v3  
+        uses: docker/metadata-action@v3
+        tags: |
+            type=semver,pattern={{version}}
         with:
           images: liaozhiming/django_drestf_demo
-          tags: |
-            type=semver,pattern={{version}}
+
 
       # 构建镜像并且推送到dockerhub
       - name: Build and push Docker image
