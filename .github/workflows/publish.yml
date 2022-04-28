@@ -5,18 +5,14 @@ on:
     # Publish `master` as Docker `latest` image.
     branches:
       - main
-      - seed
       - develop
 
     # Publish `v1.2.3` tags as releases.
-    # tags:
-    #   - v*
+    tags:
+      - v*
 
   # Run tests for any PRs.
   pull_request:
-
-env:
-  IMAGE_NAME: drestf_proj
 
 jobs:
   # Push image to GitHub Packages.
