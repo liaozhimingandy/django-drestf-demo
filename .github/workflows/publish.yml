@@ -34,7 +34,7 @@ jobs:
       # 登录到dockerhub
       - name: Dockerhub login
         uses: docker/login-action@v1  # 三方的action操作,执行docker login
-        env:
+        with:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       
