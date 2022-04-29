@@ -1,15 +1,15 @@
 name: Demo Push
 
 on:   
-  # push:
+  push:
     # # Publish `master` as Docker `latest` image.
     # branches:
     #   - main
     #   - develop
 
     # Publish `v1.2.3` tags as releases.二选一
-  tags:
-    - v*
+    tags:
+      - v*
 
 jobs:
   # Push image to GitHub Packages.
